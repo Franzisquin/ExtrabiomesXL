@@ -31,7 +31,7 @@ public class BiomeAutumnWoods extends ExtrabiomeGenBase {
         setBiomeName("Autumn Woods");
         temperature = BiomeGenBase.forest.temperature;
         rainfall = BiomeGenBase.forest.rainfall;
-        this.setHeight(new Height(0.2F, 0.8F));
+        this.setHeight(new Height(0.5F, 0.3F));
 
         spawnableCreatureList.add(new SpawnListEntry(EntityWolf.class, 5, 4, 4));
     }
