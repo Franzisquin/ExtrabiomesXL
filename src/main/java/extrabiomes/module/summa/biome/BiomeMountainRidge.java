@@ -34,7 +34,7 @@ public class BiomeMountainRidge extends ExtrabiomeGenBase {
     setBiomeName("Mountain Ridge");
     temperature = BiomeGenBase.desert.temperature;
     rainfall = BiomeGenBase.desert.rainfall;
-    this.setHeight(new Height(1.7F, 1.7F));
+    this.setHeight(new Height(1.7F, 0.0F));
     setDisableRain();
     spawnableCreatureList.clear();
     spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 3, 1, 3));

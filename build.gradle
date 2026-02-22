@@ -28,7 +28,7 @@ apply plugin: 'maven-publish'
 
 
 group = "net.extrabiomes"
-archivesBaseName = "extrabiomesxl_"+ project.mcversion
+archivesBaseName = "ExtrabiomesXL-" + project.mcversion
 
 ext.apiATG = "./api/atg"
 ext.apiNewDawn = "./api/newdawn"
@@ -62,6 +62,8 @@ processResources
     // this will ensure that this task is redone when the versions change.
     inputs.property "version", project.version
     inputs.property "mcversion", project.minecraft.version
+
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
 
     // replace stuff in the files we want.
     from(sourceSets.main.resources.srcDirs) {
@@ -138,5 +140,24 @@ artifacts {
     archives srcJar
     archives devJar
 }
+
+// Copy the built JAR to the PrismLauncher mods folder
+def modsDir = 'C:/Users/lixov/AppData/Roaming/PrismLauncher/instances/1.7.10 Testes/minecraft/mods'
+
+task copyToMods(type: Copy, dependsOn: reobf) {
+    description = 'Copies the built JAR (reobfuscated) to the PrismLauncher mods folder'
+
+    // Remove old ExtrabiomesXL jars before copying
+    doFirst {
+        fileTree(modsDir).matching {
+            include 'ExtrabiomesXL-*.jar'
+        }.each { it.delete() }
+    }
+
+    from jar.archivePath
+    into modsDir
+}
+
+reobf.finalizedBy copyToMods
 
 
