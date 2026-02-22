@@ -1,0 +1,10 @@
+#Macintosh file system junk
+.DS_Store
+
+#Windows thumbnail cache trash
+Thumbs.db
+*.jar
+desktop.ini
+/build.properties
+desktop.ini
+/bin
