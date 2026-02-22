@@ -2,9 +2,9 @@ rootProject.version = version_major + '.' + version_series + '.' + version_revis
 rootProject.ext.mcversion = mcversion
 rootProject.ext.forgeversion = forgeversion
 
-task echoVersion << {
+task echoVersion { doLast {
 	printNextVersion()
-}
+}}
 
 def saveVersion() {
 	ant.propertyfile(
@@ -23,20 +23,20 @@ def printNextVersion(){
 	println '*************************************************************'
 }
 
-task bumpMajor << {
+task bumpMajor { doLast {
 	project.version_major = Integer.parseInt(project.version_major) + 1
 	project.version_series = "0"
 	project.version_revision = "0"
 	saveVersion()
-}
+}}
 
-task bumpSeries << {
+task bumpSeries { doLast {
 	project.version_series = Integer.parseInt(project.version_series) + 1
 	project.version_revision = "0"
 	saveVersion()
-}
+}}
 
-task bumpRevision << {
+task bumpRevision { doLast {
 	project.version_revision = Integer.parseInt(project.version_revision) + 1
 	saveVersion()
-}
+}}

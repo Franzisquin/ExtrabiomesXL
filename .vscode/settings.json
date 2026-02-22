@@ -1,0 +1,9 @@
+{
+    // Desabilita a importação via Gradle para evitar o loop de reload
+    // do Java Language Server (Gradle 2.0/ForgeGradle 1.2 é antigo demais
+    // para a extensão Gradle moderna)
+    "java.import.gradle.enabled": false,
+    // Usa Java 8 para compilar o projeto (Minecraft 1.7.10)
+    "java.jdt.ls.java.home": "C:\\Program Files\\Eclipse Adoptium\\jdk-8.0.482.8-hotspot",
+    "java.compile.nullAnalysis.mode": "automatic"
+}

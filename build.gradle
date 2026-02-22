@@ -1,3 +1,13 @@
+// Load version properties from the version subproject
+def versionProps = new Properties()
+file('version/gradle.properties').withInputStream { versionProps.load(it) }
+ext.mcversion = versionProps['mcversion']
+ext.forgeversion = versionProps['forgeversion']
+ext.version_major = versionProps['version_major']
+ext.version_series = versionProps['version_series']
+ext.version_revision = versionProps['version_revision']
+version = ext.version_major + '.' + ext.version_series + '.' + ext.version_revision
+
 evaluationDependsOn(':version')
 
 buildscript {
@@ -5,21 +15,17 @@ buildscript {
         mavenCentral()
         maven {
             name = "forge"
-            url = "http://files.minecraftforge.net/maven"
-        }
-        maven {
-            name = "sonatype"
-            url = "https://oss.sonatype.org/content/repositories/snapshots/"
+            url = "https://maven.minecraftforge.net/"
         }
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
+        classpath 'com.anatawa12.forge:ForgeGradle:1.2-1.1.1'
     }
 }
 
 apply plugin: 'forge'
-apply plugin: 'maven'
-apply plugin: 'signing'
+apply plugin: 'maven-publish'
+
 
 group = "net.extrabiomes"
 archivesBaseName = "extrabiomesxl_"+ project.mcversion
@@ -133,7 +139,4 @@ artifacts {
     archives devJar
 }
 
-signing {
-    required { gradle.taskGraph.hasTask(":uploadArchives") }
-    sign configurations.archives
-}
+
