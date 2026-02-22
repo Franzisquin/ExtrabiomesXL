@@ -11,21 +11,19 @@ import net.minecraftforge.common.BiomeDictionary.Type;
 import extrabiomes.lib.BiomeSettings;
 import extrabiomes.lib.DecorationSettings;
 
-public class BiomeRainforest extends ExtrabiomeGenBase
-{
-	@Override
-	public DecorationSettings getDecorationSettings() {
-		return DecorationSettings.RAINFOREST;
-	}
+public class BiomeRainforest extends ExtrabiomeGenBase {
+    @Override
+    public DecorationSettings getDecorationSettings() {
+        return DecorationSettings.RAINFOREST;
+    }
 
-    public BiomeRainforest()
-    {
-		super(BiomeSettings.RAINFOREST, Type.JUNGLE, Type.HILLS);
-        
+    public BiomeRainforest() {
+        super(BiomeSettings.RAINFOREST, Type.JUNGLE, Type.HILLS);
+
         setColor(0x0BD626);
         setBiomeName("Rainforest");
         temperature = 1.1F;
         rainfall = 1.4F;
-        this.setHeight(new Height(0.85F, 0.45F));
+        this.setHeight(new Height(0.4F, 1.3F));
     }
 }

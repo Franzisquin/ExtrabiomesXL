@@ -15,25 +15,23 @@ import net.minecraftforge.common.BiomeDictionary.Type;
 import extrabiomes.lib.BiomeSettings;
 import extrabiomes.lib.DecorationSettings;
 
-public class BiomeMiniJungle extends ExtrabiomeGenBase
-{
-	@Override
-	public DecorationSettings getDecorationSettings() {
-		return DecorationSettings.MINIJUNGLE;
-	}
+public class BiomeMiniJungle extends ExtrabiomeGenBase {
+    @Override
+    public DecorationSettings getDecorationSettings() {
+        return DecorationSettings.MINIJUNGLE;
+    }
 
     @SuppressWarnings("unchecked")
-    public BiomeMiniJungle()
-    {
-		super(BiomeSettings.MINIJUNGLE, Type.JUNGLE);
-        
+    public BiomeMiniJungle() {
+        super(BiomeSettings.MINIJUNGLE, Type.JUNGLE);
+
         setColor(0x41D923);
         setBiomeName("Mini Jungle");
         temperature = BiomeGenBase.jungle.temperature;
         rainfall = BiomeGenBase.jungle.rainfall;
-        this.setHeight(new Height(0.4F, 0.2F));
+        this.setHeight(new Height(0.2F, 0.6F));
         waterColorMultiplier = 0x24b01c;
-        
+
         spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
         spawnableCreatureList.add(new SpawnListEntry(EntityChicken.class, 10, 4, 4));
     }

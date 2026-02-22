@@ -14,18 +14,16 @@ import net.minecraftforge.common.BiomeDictionary.Type;
 import extrabiomes.lib.BiomeSettings;
 import extrabiomes.lib.DecorationSettings;
 
-public class BiomeAlpine extends ExtrabiomeGenBase
-{
+public class BiomeAlpine extends ExtrabiomeGenBase {
 
-	@Override
-	public DecorationSettings getDecorationSettings() {
-		return DecorationSettings.ALPINE;
-	}
+    @Override
+    public DecorationSettings getDecorationSettings() {
+        return DecorationSettings.ALPINE;
+    }
 
     @SuppressWarnings("unchecked")
-    public BiomeAlpine()
-    {
-		super(BiomeSettings.ALPINE, Type.SNOWY, Type.MOUNTAIN);
+    public BiomeAlpine() {
+        super(BiomeSettings.ALPINE, Type.SNOWY, Type.MOUNTAIN);
         topBlock = Blocks.stone;
         fillerBlock = Blocks.stone;
         setColor(0x8DACC4);
@@ -33,9 +31,9 @@ public class BiomeAlpine extends ExtrabiomeGenBase
         setBiomeName("Alpine");
         temperature = 0.0F;
         rainfall = 0.1F;
-        this.setHeight(new Height(1.7F, 0.4F));
-        
+        this.setHeight(new Height(1.3F, 2.1F));
+
         spawnableCreatureList.add(new SpawnListEntry(EntityWolf.class, 8, 4, 4));
     }
-    
+
 }

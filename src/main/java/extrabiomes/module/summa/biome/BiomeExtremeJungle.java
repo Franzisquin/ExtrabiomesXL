@@ -14,27 +14,24 @@ import net.minecraftforge.common.BiomeDictionary.Type;
 import extrabiomes.lib.BiomeSettings;
 import extrabiomes.lib.DecorationSettings;
 
-public class BiomeExtremeJungle extends ExtrabiomeGenBase
-{
+public class BiomeExtremeJungle extends ExtrabiomeGenBase {
 
-	@Override
-	public DecorationSettings getDecorationSettings() {
-		return DecorationSettings.EXTREMEJUNGLE;
-	}
+    @Override
+    public DecorationSettings getDecorationSettings() {
+        return DecorationSettings.EXTREMEJUNGLE;
+    }
 
     @SuppressWarnings("unchecked")
-    public BiomeExtremeJungle()
-    {
-		super(BiomeSettings.EXTREMEJUNGLE, Type.JUNGLE, Type.MOUNTAIN);
+    public BiomeExtremeJungle() {
+        super(BiomeSettings.EXTREMEJUNGLE, Type.JUNGLE, Type.MOUNTAIN);
         setColor(0x2c4205);
         setBiomeName("Extreme Jungle");
         temperature = BiomeGenBase.jungle.temperature;
         rainfall = BiomeGenBase.jungle.rainfall;
-        // TODO: Check This new height
-        this.setHeight(new Height(1.2F, 0.1F));
-        
+        this.setHeight(new Height(2.1F, 2.3F));
+
         spawnableMonsterList.add(new SpawnListEntry(EntityOcelot.class, 2, 1, 1));
         spawnableCreatureList.add(new SpawnListEntry(EntityChicken.class, 10, 4, 4));
     }
-    
+
 }

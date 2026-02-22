@@ -16,37 +16,33 @@ import cpw.mods.fml.relauncher.SideOnly;
 import extrabiomes.lib.BiomeSettings;
 import extrabiomes.lib.DecorationSettings;
 
-public class BiomeGreenHills extends ExtrabiomeGenBase
-{
+public class BiomeGreenHills extends ExtrabiomeGenBase {
 
-	@Override
-	public DecorationSettings getDecorationSettings() {
-		return DecorationSettings.GREENHILLS;
-	}
+    @Override
+    public DecorationSettings getDecorationSettings() {
+        return DecorationSettings.GREENHILLS;
+    }
 
-    public BiomeGreenHills()
-    {
-		super(BiomeSettings.GREENHILLS, Type.HILLS);
-        
+    public BiomeGreenHills() {
+        super(BiomeSettings.GREENHILLS, Type.HILLS);
+
         setColor(0x68C474);
         setBiomeName("Green Hills");
         temperature = BiomeGenBase.forest.temperature - 0.1F;
         rainfall = BiomeGenBase.forest.rainfall + 0.1F;
-        this.setHeight(new Height(0.9F, 0.3F));
+        this.setHeight(new Height(0.6F, 1.2F));
     }
-    
+
     @Override
     @SideOnly(Side.CLIENT)
-    public int getBiomeFoliageColor(int x, int y, int z)
-    {
+    public int getBiomeFoliageColor(int x, int y, int z) {
         return ColorizerFoliage.getFoliageColor(0.7F, 0.8F);
     }
-    
+
     @Override
     @SideOnly(Side.CLIENT)
-    public int getBiomeGrassColor(int x, int y, int z)
-    {
+    public int getBiomeGrassColor(int x, int y, int z) {
         return ColorizerGrass.getGrassColor(0.7F, 0.8F);
     }
-    
+
 }

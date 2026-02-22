@@ -11,21 +11,19 @@ import net.minecraftforge.common.BiomeDictionary.Type;
 import extrabiomes.lib.BiomeSettings;
 import extrabiomes.lib.DecorationSettings;
 
-public class BiomeRedwoodForest extends ExtrabiomeGenBase
-{
-	@Override
-	public DecorationSettings getDecorationSettings() {
-		return DecorationSettings.REDWOODFOREST;
-	}
+public class BiomeRedwoodForest extends ExtrabiomeGenBase {
+    @Override
+    public DecorationSettings getDecorationSettings() {
+        return DecorationSettings.REDWOODFOREST;
+    }
 
-    public BiomeRedwoodForest()
-    {
-		super(BiomeSettings.REDWOODFOREST, Type.FOREST, Type.HILLS);
-        
+    public BiomeRedwoodForest() {
+        super(BiomeSettings.REDWOODFOREST, Type.FOREST, Type.HILLS);
+
         setColor(0x0BD626);
         setBiomeName("Redwood Forest");
         temperature = 1.1F;
         rainfall = 1.4F;
-        this.setHeight(new Height(1.2F, 0.3F));
+        this.setHeight(new Height(0.9F, 1.5F));
     }
 }

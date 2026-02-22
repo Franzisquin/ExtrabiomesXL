@@ -11,21 +11,19 @@ import net.minecraftforge.common.BiomeDictionary.Type;
 import extrabiomes.lib.BiomeSettings;
 import extrabiomes.lib.DecorationSettings;
 
-public class BiomeRedwoodLush extends ExtrabiomeGenBase
-{
-	@Override
-	public DecorationSettings getDecorationSettings() {
-		return DecorationSettings.REDWOODLUSH;
-	}
+public class BiomeRedwoodLush extends ExtrabiomeGenBase {
+    @Override
+    public DecorationSettings getDecorationSettings() {
+        return DecorationSettings.REDWOODLUSH;
+    }
 
-    public BiomeRedwoodLush()
-    {
-		super(BiomeSettings.REDWOODLUSH, Type.FOREST, Type.HILLS);
-        
+    public BiomeRedwoodLush() {
+        super(BiomeSettings.REDWOODLUSH, Type.FOREST, Type.HILLS);
+
         setColor(0x4AC758);
         setBiomeName("Lush Redwoods");
         temperature = 1.1F;
         rainfall = 1.4F;
-        this.setHeight(new Height(1.2F, 0.3F));
+        this.setHeight(new Height(0.9F, 1.5F));
     }
 }

@@ -35,16 +35,21 @@ public class BiomeGreenSwamp extends ExtrabiomeGenBase {
     setBiomeName("Green Swamplands");
     temperature = BiomeGenBase.swampland.temperature - 0.1F;
     rainfall = BiomeGenBase.swampland.rainfall;
-    this.setHeight(new Height(-0.05F, 0.15F));
+    this.setHeight(new Height(-0.2F, 0.1F));
     spawnableMonsterList.add(new SpawnListEntry(EntitySlime.class, 1, 1, 1));
   }
 
   @Override
   public void canSpawnEvent(CheckSpawn event) {
-    if(event.entity instanceof EntitySlime && event.y > 50.0D && event.y < 70.0D && event.world.rand.nextFloat() < 0.5F && event.world.rand.nextFloat() < event.world.getCurrentMoonPhaseFactor() && event.world.getBlockLightValue(MathHelper.floor_double(event.x), MathHelper.floor_double(event.y), MathHelper.floor_double(event.z)) <= event.world.rand.nextInt(8)) {
+    if (event.entity instanceof EntitySlime && event.y > 50.0D && event.y < 70.0D && event.world.rand.nextFloat() < 0.5F
+        && event.world.rand.nextFloat() < event.world.getCurrentMoonPhaseFactor()
+        && event.world.getBlockLightValue(MathHelper.floor_double(event.x), MathHelper.floor_double(event.y),
+            MathHelper.floor_double(event.z)) <= event.world.rand.nextInt(8)) {
       AxisAlignedBB boundingBox = event.entityLiving.boundingBox;
-      
-      if(event.world.checkNoEntityCollision(boundingBox) && event.world.getCollidingBoundingBoxes(event.entityLiving, boundingBox).isEmpty() && !event.world.isAnyLiquid(boundingBox)) {
+
+      if (event.world.checkNoEntityCollision(boundingBox)
+          && event.world.getCollidingBoundingBoxes(event.entityLiving, boundingBox).isEmpty()
+          && !event.world.isAnyLiquid(boundingBox)) {
         // Allow the spawning
         event.setResult(Result.ALLOW);
       }

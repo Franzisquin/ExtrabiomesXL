@@ -12,17 +12,15 @@ import net.minecraftforge.common.BiomeDictionary.Type;
 import extrabiomes.lib.BiomeSettings;
 import extrabiomes.lib.DecorationSettings;
 
-public class BiomeGlacier extends ExtrabiomeGenBase
-{
+public class BiomeGlacier extends ExtrabiomeGenBase {
 
-	@Override
-	public DecorationSettings getDecorationSettings() {
-		return DecorationSettings.GLACIER;
-	}
+    @Override
+    public DecorationSettings getDecorationSettings() {
+        return DecorationSettings.GLACIER;
+    }
 
-    public BiomeGlacier()
-    {
-		super(BiomeSettings.GLACIER, Type.SNOWY, Type.WASTELAND, Type.MOUNTAIN);
+    public BiomeGlacier() {
+        super(BiomeSettings.GLACIER, Type.SNOWY, Type.WASTELAND, Type.MOUNTAIN);
         spawnableCreatureList.clear();
         topBlock = Blocks.snow;
         fillerBlock = Blocks.ice;
@@ -31,7 +29,7 @@ public class BiomeGlacier extends ExtrabiomeGenBase
         setEnableSnow();
         temperature = 0.0F;
         rainfall = 0.0F;
-        this.setHeight(new Height(1.75F, 0.35F));
+        this.setHeight(new Height(1.4F, 2.1F));
     }
-    
+
 }

@@ -24,18 +24,17 @@ import extrabiomes.lib.DecorationSettings;
 public class BiomeMountainRidge extends ExtrabiomeGenBase {
   @Override
   public DecorationSettings getDecorationSettings() {
-  	return DecorationSettings.MOUNTAINRIDGE;
+    return DecorationSettings.MOUNTAINRIDGE;
   }
 
   @SuppressWarnings("unchecked")
   public BiomeMountainRidge() {
     super(BiomeSettings.MOUNTAINRIDGE, Type.MOUNTAIN, Type.SANDY);
     setColor(0xC4722F);
-    setBiomeName("Red Rock Mountains");
+    setBiomeName("Mountain Ridge");
     temperature = BiomeGenBase.desert.temperature;
     rainfall = BiomeGenBase.desert.rainfall;
-    // TODO: Check height
-    this.setHeight(new Height(1.7F, -0.1F));
+    this.setHeight(new Height(1.7F, 1.7F));
     setDisableRain();
     spawnableCreatureList.clear();
     spawnableCreatureList.add(new SpawnListEntry(EntityHorse.class, 3, 1, 3));

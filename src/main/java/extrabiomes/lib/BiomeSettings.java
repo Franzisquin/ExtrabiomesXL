@@ -50,10 +50,10 @@ import extrabiomes.helpers.LogHelper;
 
 public enum BiomeSettings {
 	DESERT, EXTREMEHILLS, FOREST, JUNGLE, PLAINS, SWAMPLAND, TAIGA, OCEAN,
-/* @formatter:off */
+	/* @formatter:off */
 	ALPINE				(60, BiomeAlpine.class),
 	AUTUMNWOODS			(61, BiomeAutumnWoods.class),
-	BIRCHFOREST			(62, BiomeBirchForest.class),
+	BIRCHFOREST			(62, BiomeBirchForest.class,			false),
 	EXTREMEJUNGLE		(63, BiomeExtremeJungle.class),
 	FORESTEDHILLS		(64, BiomeForestedHills.class),
 	FORESTEDISLAND		(65, BiomeForestedIsland.class),
@@ -66,17 +66,17 @@ public enum BiomeSettings {
 	MINIJUNGLE			(44, BiomeMiniJungle.class,				Weights.LIGHT),
 	MOUNTAINDESERT		(45, BiomeMountainDesert.class),
 	MOUNTAINRIDGE		(46, BiomeMountainRidge.class),
-	MOUNTAINTAIGA		(47, BiomeMountainTaiga.class),
-	PINEFOREST			(48, BiomePineForest.class),
+	MOUNTAINTAIGA		(47, BiomeMountainTaiga.class,		false),
+	PINEFOREST			(48, BiomePineForest.class,			false),
 	RAINFOREST			(49, BiomeRainforest.class),
 	REDWOODFOREST		(50, BiomeRedwoodForest.class),
 	REDWOODLUSH			(51, BiomeRedwoodLush.class),
-	SAVANNA				(52, BiomeSavanna.class),
+	SAVANNA				(52, BiomeSavanna.class,				false),
 	SHRUBLAND			(53, BiomeShrubland.class),
 	SNOWYFOREST			(54, BiomeSnowForest.class),
 	SNOWYRAINFOREST		(55, BiomeSnowRainforest.class),
 	TEMPORATERAINFOREST	(56, BiomeTemporateRainforest.class),
-	TUNDRA				(57, BiomeTundra.class),
+	TUNDRA				(57, BiomeTundra.class,				false),
 	WASTELAND			(58, BiomeWasteland.class,				Weights.LIGHT),
 	WOODLANDS			(59, BiomeWoodlands.class,				Weights.HEAVY);
 /* @formatter:on */
@@ -87,7 +87,7 @@ public enum BiomeSettings {
 	private int weight = Weights.NORMAL.value;
 	private boolean enabled = true;
 	private boolean allowVillages = true;
-	
+
 	private final Optional<? extends Class<? extends BiomeGenBase>> biomeClass;
 	private Optional<? extends BiomeGenBase> biome = Optional.absent();
 
