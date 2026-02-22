@@ -102,7 +102,7 @@ public enum BiomeSettings {
 	}
 
 	private enum Weights {
-		NONE(0), LIGHT(5), NORMAL(10), HEAVY(20);
+		NONE(0), LIGHT(20), NORMAL(20), HEAVY(20);
 
 		public int value;
 
@@ -160,18 +160,16 @@ public enum BiomeSettings {
 
 			// register ourselves with the biome manager
 			BiomeManager.BiomeEntry entry = new BiomeManager.BiomeEntry(egb, weight);
-			if (egb.temperature > 0.5f) {
-				if (egb.isHighHumidity()) {
-					BiomeManager.addBiome(BiomeType.WARM, entry);
-				} else {
-					BiomeManager.addBiome(BiomeType.DESERT, entry);
-				}
+			if (egb.temperature <= 0.5f && egb.getEnableSnow()) {
+				// Frio + Neve -> ICY
+				BiomeManager.addBiome(BiomeType.ICY, entry);
+			} else if (egb.temperature > 0.5f && !egb.isHighHumidity()) {
+				// Quente + Seco -> DESERT
+				BiomeManager.addBiome(BiomeType.DESERT, entry);
 			} else {
-				if (egb.getEnableSnow()) {
-					BiomeManager.addBiome(BiomeType.ICY, entry);
-				} else {
-					BiomeManager.addBiome(BiomeType.COOL, entry);
-				}
+				// Qualquer outro bioma (WARM ou COOL originais) -> WARM e COOL simultaneamente
+				BiomeManager.addBiome(BiomeType.WARM, entry);
+				BiomeManager.addBiome(BiomeType.COOL, entry);
 			}
 
 		} else {
